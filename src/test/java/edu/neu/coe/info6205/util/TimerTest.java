@@ -168,87 +168,87 @@ public class TimerTest {
     public static final double TENTH_DOUBLE = 100;
     public static final int HUNDREDTH = 10;
 
-//    public static void main(String[] args) {
-//        randomOrder();
-//        order();
-//        partialOrder();
-//        reverseOrder();
-//    }
-//
-//
-//    public static void randomOrder(){
-//        int max = 100000;
-//        int repetition = 100;
-//        Integer[] arr;
-//        int length = 10000;
-//        for(int i = 0;i<5;i++){
-//            arr = new Integer[length];
-//            for (int j = 0; j < length; j++) {
-//                arr[j] = (ThreadLocalRandom.current().nextInt(0, max + 1));
-//            }
-//            Integer[] finalArr = arr;
-//            Benchmark<Integer> benchmark = new Benchmark_Timer<>("random", a->new InsertionSort<Integer>().sort(finalArr,0,finalArr.length));
-//            double mean = benchmark.run(1,repetition);
-//            System.out.println("random sort with "+length+" num "+mean);
-//            length*=2;
-//        }
-//    }
-//
-//    public static void order(){
-//        int max = 100000;
-//        int repetition = 100;
-//        Integer[] arr;
-//        int length = 10000;
-//        for(int i = 0;i<5;i++){
-//            arr = new Integer[length];
-//            for (int j = 0; j < length; j++) {
-//                arr[j] = (ThreadLocalRandom.current().nextInt(0, max + 1));
-//            }
-//            new InsertionSort<Integer>().sort(arr,0,arr.length);
-//            Integer[] finalArr = arr;
-//            Benchmark<Integer> benchmark = new Benchmark_Timer<>("order sort", a->new InsertionSort<Integer>().sort(finalArr,0,finalArr.length));
-//            double mean = benchmark.run(1,repetition);
-//            System.out.println("order sort with "+length+" num "+mean);
-//            length*=2;
-//        }
-//    }
-//
-//    public static void reverseOrder(){
-//        int max = 100000;
-//        int repetition = 100;
-//        Integer[] arr;
-//        int length = 10000;
-//        for(int i = 0;i<5;i++){
-//            arr = new Integer[length];
-//            for (int j = 0; j < length; j++) {
-//                arr[j] = (ThreadLocalRandom.current().nextInt(0, max + 1));
-//            }
-//            new InsertionSort<Integer>().sort(arr,0,arr.length);
-//            Arrays.sort(arr, Collections.reverseOrder());
-//            Integer[] finalArr = arr;
-//            Benchmark<Integer> benchmark = new Benchmark_Timer<>("reverse order", a->new InsertionSort<Integer>().sort(finalArr,0,finalArr.length));
-//            double mean = benchmark.run(1,repetition);
-//            System.out.println("reverse order with "+length+" num "+mean);
-//            length*=2;
-//        }
-//    }
-//
-//    public static void partialOrder(){
-//        int max = 100000;
-//        int repetition = 100;
-//        Integer[] arr;
-//        int length = 10000;
-//        for(int i = 0;i<5;i++){
-//            arr = new Integer[length];
-//            for (int j = 0; j < length; j++) {
-//                arr[j] = (ThreadLocalRandom.current().nextInt(0, max + 1));
-//            }
-//            new InsertionSort<Integer>().sort(arr,0,arr.length/2);
-//            Integer[] finalArr = arr;
-//            Benchmark<Integer> benchmark = new Benchmark_Timer<>("partial order", a->new InsertionSort<Integer>().sort(finalArr,0,finalArr.length));
-//            double mean = benchmark.run(1,repetition);
-//            System.out.println("partial order with "+length+" num "+mean);
-//            length*=2;
-//        }
-//    }
+    public static void main(String[] args) {
+        randomOrder();
+        order();
+        partialOrder();
+        reverseOrder();
+    }
+
+
+    public static void randomOrder(){
+        int max = 100000;
+        int repetition = 100;
+        Integer[] arr;
+        int length = 10000;
+        for(int i = 0;i<5;i++){
+            arr = new Integer[length];
+            for (int j = 0; j < length; j++) {
+                arr[j] = (ThreadLocalRandom.current().nextInt(0, max + 1));
+            }
+            Integer[] finalArr = arr;
+            Benchmark<Integer> benchmark = new Benchmark_Timer<>("random", a->new InsertionSort<Integer>().sort(finalArr,0,finalArr.length));
+            double mean = benchmark.run(1,repetition);
+            System.out.println("random sort with "+length+" num "+mean);
+            length*=2;
+        }
+    }
+
+    public static void order(){
+        int max = 100000;
+        int repetition = 100;
+        Integer[] arr;
+        int length = 10000;
+        for(int i = 0;i<5;i++){
+            arr = new Integer[length];
+            for (int j = 0; j < length; j++) {
+                arr[j] = (ThreadLocalRandom.current().nextInt(0, max + 1));
+            }
+            new InsertionSort<Integer>().sort(arr,0,arr.length);
+            Integer[] finalArr = arr;
+            Benchmark<Integer> benchmark = new Benchmark_Timer<>("order sort", a->new InsertionSort<Integer>().sort(finalArr,0,finalArr.length));
+            double mean = benchmark.run(1,repetition);
+            System.out.println("order sort with "+length+" num "+mean);
+            length*=2;
+        }
+    }
+
+    public static void reverseOrder(){
+        int max = 100000;
+        int repetition = 100;
+        Integer[] arr;
+        int length = 10000;
+        for(int i = 0;i<5;i++){
+            arr = new Integer[length];
+            for (int j = 0; j < length; j++) {
+                arr[j] = (ThreadLocalRandom.current().nextInt(0, max + 1));
+            }
+            new InsertionSort<Integer>().sort(arr,0,arr.length);
+            Arrays.sort(arr, Collections.reverseOrder());
+            Integer[] finalArr = arr;
+            Benchmark<Integer> benchmark = new Benchmark_Timer<>("reverse order", a->new InsertionSort<Integer>().sort(finalArr,0,finalArr.length));
+            double mean = benchmark.run(1,repetition);
+            System.out.println("reverse order with "+length+" num "+mean);
+            length*=2;
+        }
+    }
+
+    public static void partialOrder(){
+        int max = 100000;
+        int repetition = 100;
+        Integer[] arr;
+        int length = 10000;
+        for(int i = 0;i<5;i++){
+            arr = new Integer[length];
+            for (int j = 0; j < length; j++) {
+                arr[j] = (ThreadLocalRandom.current().nextInt(0, max + 1));
+            }
+            new InsertionSort<Integer>().sort(arr,0,arr.length/2);
+            Integer[] finalArr = arr;
+            Benchmark<Integer> benchmark = new Benchmark_Timer<>("partial order", a->new InsertionSort<Integer>().sort(finalArr,0,finalArr.length));
+            double mean = benchmark.run(1,repetition);
+            System.out.println("partial order with "+length+" num "+mean);
+            length*=2;
+        }
+    }
 }

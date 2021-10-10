@@ -80,9 +80,28 @@ public class UF_HWQUPC implements UF {
      */
     public int find(int p) {
         validate(p);
-        int root = p;
         // TO BE IMPLEMENTED
-        return root;
+
+        while(p != parent[p]){
+            if(pathCompression) doPathCompression(p);
+            p=parent[p];
+        }
+        return p;
+//        int root = p;
+//        if (pathCompression) {
+//            if (p == parent[p]) {
+//                return p;
+//            } else {
+//                parent[p] = find(parent[p]);
+//                return parent[p];
+//            }
+//        } else {
+//            while (p != parent[p]) {
+//                p = parent[p];
+//            }
+//            return p;
+//        }
+//        return root;
     }
 
     /**
@@ -169,6 +188,13 @@ public class UF_HWQUPC implements UF {
 
     private void mergeComponents(int i, int j) {
         // TO BE IMPLEMENTED make shorter root point to taller one
+        if (height[i] >= height[j]) {
+            parent[j] = i;
+            height[i] += height[j];
+        } else {
+            parent[i] = j;
+            height[j] += height[i];
+        }
     }
 
     /**
@@ -176,5 +202,60 @@ public class UF_HWQUPC implements UF {
      */
     private void doPathCompression(int i) {
         // TO BE IMPLEMENTED update parent to value of grandparent
+        parent[i] = parent[parent[i]];
     }
+
+//    public static int count(){
+//
+//    }
+
+    public static int count(int n){
+        UF h = new UF_HWQUPC(n);
+        int countConnection = 0;
+        boolean allConnect = false;
+        int randOne,randTwo;
+        while(!allConnect){
+            randOne = getRandomNumber(n);
+            randTwo = getRandomNumber(n);
+//            System.out.println("gen rand "+randOne+", "+randTwo);
+            h.connect(randOne,randTwo);
+            countConnection++;
+            allConnect = checkAllConnect(h);
+        }
+        return countConnection;
+    }
+
+    private static boolean checkAllConnect(UF h){
+        for(int i=0;i<h.size();i++){
+            if(!h.isConnected(0,i)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static int getRandomNumber(int max) {
+        return (int) ((Math.random() * max));
+    }
+
+    public static void main(String[] args) {
+        int number = 100;
+        if(args.length != 0 ){
+            number = Integer.parseInt(args[0]);
+        }
+        for(int i=0;i<14;i++){
+            long a =0;
+            for(int j=0;j<30;j++){
+                long b = count(number);
+//                System.out.println("n: "+number+" count: "+b);
+                System.out.print(+b+" ");
+                a+=b;
+            }
+            System.out.println();
+            System.out.println("n: "+number+"fin, avg: "+a/30);
+            number*=2;
+        }
+//        System.out.println("n: "+number+" count: "+count(number));
+    }
+
 }
